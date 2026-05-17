@@ -1,0 +1,33 @@
+{
+  "model_path": "/mnt/ssd/research/cfdna/models/learned_deconv_nanaware.pt",
+  "best_val_pearson": 0.9985615777272187,
+  "cross_coverage": {
+    "keep_100": {
+      "per_tissue": {
+        "colon": 0.9994634495618946,
+        "liver": 0.9991777243710471,
+        "lung": 0.9994639070091337,
+        "breast": 0.9990503708784576
+      },
+      "mean_pearson": 0.9992888629551333
+    },
+    "keep_20": {
+      "per_tissue": {
+        "colon": 0.8886029130344945,
+        "liver": 0.8674143760730789,
+        "lung": 0.8898561396252667,
+        "breast": 0.9190233184310692
+      },
+      "mean_pearson": 0.8912241867909774
+    },
+    "keep_10": {
+      "per_tissue": {
+        "colon": 0.7843736154296295,
+        "liver": 0.7261134640224037,
+        "lung": 0.7563087668438971,
+        "breast": 0.8275108718405316
+      },
+      "mean_pearson": 0.7735766795341155
+    }
+  }
+}

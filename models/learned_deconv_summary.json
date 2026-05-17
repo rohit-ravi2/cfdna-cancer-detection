@@ -1,0 +1,11 @@
+{
+  "granu_learned": 0.2733389735221863,
+  "granu_nnls_ref": 0.292,
+  "granu_diff": 0.018661026477813702,
+  "val_pearson": 0.9980470136100893,
+  "best_val_pearson_during_train": 0.9980470136100893,
+  "nnls_pearson_ref": 0.972,
+  "verdict": "PASS_learned_competitive",
+  "n_train": 982,
+  "n_val": 211
+}

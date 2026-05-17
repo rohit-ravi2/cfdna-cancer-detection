@@ -1,0 +1,35 @@
+# cfDNA project — main venv at /home/rohit/venvs/cfdna/
+# Generated 2026-05-12 (Gate 0)
+# Python 3.12.3
+
+# Core numerics
+numpy==2.4.4
+pandas==3.0.3
+scipy==1.17.1
+scikit-learn==1.8.0
+pyarrow==24.0.0
+
+# Deep learning (CPU-fallback; cu130 binaries installed but driver is 12.8 — see Gate 0 notes)
+torch==2.11.0
+torchvision==0.26.0
+
+# Genomics / methylation tooling
+GEOparse==2.0.4
+pyranges==0.1.4
+pyliftover==0.4.1
+pybedtools==0.12.0   # NOTE: requires `bedtools` binary on PATH at runtime; binary is NOT installed (defer to Gate 2)
+
+# Stats / plotting
+statsmodels==0.14.6
+matplotlib==3.10.9
+seaborn==0.13.2
+
+# Utilities
+tqdm==4.67.3
+requests==2.34.0
+
+# ---
+# Methylprep is installed in a SEPARATE venv to avoid numpy/pandas conflicts:
+#   /home/rohit/venvs/cfdna-methylprep/
+#   methylprep==1.7.1
+# Use only for idat -> beta value conversion (Gate 2 step, if Illumina array data is encountered).

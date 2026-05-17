@@ -1,0 +1,73 @@
+{
+  "healthy_K": 1,
+  "healthy_BIC": 1013.6419290415158,
+  "healthy_n_train": 23,
+  "tcga_info": {
+    "COAD": {
+      "n_train": 30,
+      "obs_blocks": 801,
+      "mean_obs_beta": 0.8255730867385864
+    },
+    "LIHC": {
+      "n_train": 29,
+      "obs_blocks": 801,
+      "mean_obs_beta": 0.7933024168014526
+    },
+    "LUAD": {
+      "n_train": 30,
+      "obs_blocks": 801,
+      "mean_obs_beta": 0.8398476243019104
+    },
+    "BRCA": {
+      "n_train": 19,
+      "obs_blocks": 801,
+      "mean_obs_beta": 0.8345028162002563
+    }
+  },
+  "n_total": 4600,
+  "n_healthy_synth": 1000,
+  "n_cancer_synth": 3600,
+  "tf_levels": [
+    0.001,
+    0.003,
+    0.005,
+    0.01,
+    0.03,
+    0.05,
+    0.1,
+    0.15,
+    0.2
+  ],
+  "sanity": {
+    "COAD": {
+      "n": 18,
+      "pearson": 0.9286832396548574,
+      "mean_at_high_tf": 0.026203486244253792,
+      "mean_at_low_tf": 0.0,
+      "elevation": 0.026203486244253792
+    },
+    "LIHC": {
+      "n": 18,
+      "pearson": 0.9840760642916562,
+      "mean_at_high_tf": 0.03655568627501623,
+      "mean_at_low_tf": 0.0003114968788108568,
+      "elevation": 0.03624418939620537
+    },
+    "LUAD": {
+      "n": 18,
+      "pearson": 0.9085155541170892,
+      "mean_at_high_tf": 0.022357650769072455,
+      "mean_at_low_tf": 0.0,
+      "elevation": 0.022357650769072455
+    },
+    "BRCA": {
+      "n": 18,
+      "pearson": 0.9955455189175014,
+      "mean_at_high_tf": 0.036580849725878134,
+      "mean_at_low_tf": 0.005108073594178975,
+      "elevation": 0.03147277613169916
+    },
+    "PAAD": null
+  },
+  "elapsed_min": 0.13
+}
