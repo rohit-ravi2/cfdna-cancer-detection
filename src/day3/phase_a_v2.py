@@ -37,10 +37,10 @@ import pandas as pd
 from sklearn.mixture import GaussianMixture
 from sklearn.decomposition import PCA
 
-PROC = Path("/mnt/ssd/research/cfdna/processed")
-MODELS = Path("/mnt/ssd/research/cfdna/models")
-LOG = Path("/mnt/ssd/research/cfdna/logs/day3_phase_a.log")
-ATLAS_FULL = Path("/mnt/hdd/research/cfdna/raw/loyfer_atlas/Atlas.U250.l4.hg38.full.tsv")
+PROC = Path("work/processed")
+MODELS = Path("work/models")
+LOG = Path("work/logs/day3_phase_a.log")
+ATLAS_FULL = Path("work/raw/loyfer_atlas/Atlas.U250.l4.hg38.full.tsv")
 
 N_BLOCKS = 9520
 N_PER_COMBO = 100

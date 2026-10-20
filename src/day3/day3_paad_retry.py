@@ -5,10 +5,10 @@ from pathlib import Path
 import requests
 import os
 
-MANIFEST = Path("/mnt/hdd/research/cfdna/raw/TCGA/manifests/TCGA-PAAD_manifest.json")
-RAW_DIR = Path("/mnt/hdd/research/cfdna/raw/TCGA/TCGA-PAAD")
+MANIFEST = Path("work/raw/TCGA/manifests/TCGA-PAAD_manifest.json")
+RAW_DIR = Path("work/raw/TCGA/TCGA-PAAD")
 RAW_DIR.mkdir(parents=True, exist_ok=True)
-LOG = Path("/mnt/ssd/research/cfdna/logs/day3_paad.log")
+LOG = Path("work/logs/day3_paad.log")
 N_TARGET = 40   # we only need ~30 like other types; download 40 for buffer
 GDC_DATA = "https://api.gdc.cancer.gov/data"
 

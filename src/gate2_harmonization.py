@@ -4,7 +4,7 @@
 Inputs
 ------
 Atlas (hg38, 9520 blocks x 39 cell types):
-    /mnt/hdd/research/cfdna/raw/loyfer_atlas/Atlas.U250.l4.hg38.full.tsv
+    work/raw/loyfer_atlas/Atlas.U250.l4.hg38.full.tsv
 
 Cohorts:
     GSE186007  : hg38 Bismark .cov.gz (CRC + healthy + PDAC, 100 samples)
@@ -19,10 +19,10 @@ inside the block. This yields a [n_atlas_blocks x n_samples] matrix per cohort.
 
 Outputs
 -------
-    /mnt/ssd/research/cfdna/processed/<cohort>_harmonized.parquet
-    /mnt/ssd/research/cfdna/processed/<cohort>_samples.tsv
-    /mnt/ssd/research/cfdna/processed/_atlas_blocks.parquet
-    /mnt/ssd/research/cfdna/processed/_block_coverage_<cohort>.parquet
+    work/processed/<cohort>_harmonized.parquet
+    work/processed/<cohort>_samples.tsv
+    work/processed/_atlas_blocks.parquet
+    work/processed/_block_coverage_<cohort>.parquet
 
 Resumability: per-sample checkpoint .npy files under <cohort>_chk/. If the
 final parquet exists with non-empty content, the cohort is skipped unless
@@ -48,8 +48,8 @@ from tqdm import tqdm
 # -----------------------------------------------------------------------------
 # Paths and constants
 # -----------------------------------------------------------------------------
-ROOT = Path("/mnt/ssd/research/cfdna")
-RAW = Path("/mnt/hdd/research/cfdna/raw")
+ROOT = Path("work")
+RAW = Path("work/raw")
 PROCESSED = ROOT / "processed"
 LOGS = ROOT / "logs"
 MANIFEST_DIR = PROCESSED / "_manifests"

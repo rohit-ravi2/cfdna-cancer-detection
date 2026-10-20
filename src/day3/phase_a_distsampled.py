@@ -8,10 +8,10 @@ to TCGA tumor methylation, and healthy profiles from a GMM fit to
 GSE186458 cfDNA (+WBC) healthy samples.
 
 Outputs:
-  /mnt/ssd/research/cfdna/models/tcga_tumor_gmm_<TYPE>.pkl
-  /mnt/ssd/research/cfdna/models/healthy_gmm.pkl
-  /mnt/ssd/research/cfdna/processed/distsampled_mixtures_betas.parquet
-  /mnt/ssd/research/cfdna/processed/distsampled_mixtures_labels.parquet
+  work/models/tcga_tumor_gmm_<TYPE>.pkl
+  work/models/healthy_gmm.pkl
+  work/processed/distsampled_mixtures_betas.parquet
+  work/processed/distsampled_mixtures_labels.parquet
 """
 import json
 import time
@@ -24,10 +24,10 @@ import pandas as pd
 from sklearn.mixture import GaussianMixture
 from sklearn.decomposition import PCA
 
-PROC = Path("/mnt/ssd/research/cfdna/processed")
-MODELS = Path("/mnt/ssd/research/cfdna/models")
+PROC = Path("work/processed")
+MODELS = Path("work/models")
 MODELS.mkdir(parents=True, exist_ok=True)
-LOG = Path("/mnt/ssd/research/cfdna/logs/day3_phase_a.log")
+LOG = Path("work/logs/day3_phase_a.log")
 
 N_BLOCKS = 9520
 N_PER_COMBO = 100
@@ -347,7 +347,7 @@ def sanity_check_deconv(betas_arr, labels_df, block_ids):
     correlates with target TF per cancer type."""
     from scipy.optimize import nnls
     # Load Loyfer atlas (cell-type beta values per block)
-    atlas_p = Path("/mnt/hdd/research/cfdna/raw/loyfer_atlas/Atlas.U250.l4.hg38.full.tsv")
+    atlas_p = Path("work/raw/loyfer_atlas/Atlas.U250.l4.hg38.full.tsv")
     if not atlas_p.exists():
         log("  Loyfer atlas not found; skipping sanity")
         return {}

@@ -24,10 +24,10 @@ import numpy as np
 from pyliftover import LiftOver
 
 
-PROBE_DIR = '/mnt/hdd/research/cfdna/raw/GSE149438/probe'
-ATLAS_BLOCKS = '/mnt/ssd/research/cfdna/processed/_atlas_blocks.parquet'
-OUT_DIR = '/mnt/ssd/research/cfdna/processed'
-LOG = '/mnt/ssd/research/cfdna/logs/gate_redo1.log'
+PROBE_DIR = 'work/raw/GSE149438/probe'
+ATLAS_BLOCKS = 'work/processed/_atlas_blocks.parquet'
+OUT_DIR = 'work/processed'
+LOG = 'work/logs/gate_redo1.log'
 
 
 def log(msg):

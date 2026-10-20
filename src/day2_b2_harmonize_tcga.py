@@ -9,8 +9,8 @@ Approach:
   3) Aggregate (mean beta) per block per sample.
 
 Outputs:
-  /mnt/ssd/research/cfdna/processed/tcga_<PROJECT>_harmonized.parquet
-  /mnt/ssd/research/cfdna/processed/tcga_metadata.tsv
+  work/processed/tcga_<PROJECT>_harmonized.parquet
+  work/processed/tcga_metadata.tsv
 
 Caveat: 450K covers only ~485K CpGs vs 28M for WGBS. Atlas blocks may have
 zero overlapping probes -> NaN. Expected per-block coverage ~30-50%.
@@ -27,12 +27,12 @@ import numpy as np
 import pandas as pd
 import requests
 
-PROC_DIR = Path("/mnt/ssd/research/cfdna/processed")
+PROC_DIR = Path("work/processed")
 ATLAS_BED = PROC_DIR / "atlas_blocks_hg38.bed"
-TCGA_RAW = Path("/mnt/hdd/research/cfdna/raw/tcga_methylation")
-MANIFEST_DIR = Path("/mnt/hdd/research/cfdna/raw/illumina_manifests")
+TCGA_RAW = Path("work/raw/tcga_methylation")
+MANIFEST_DIR = Path("work/raw/illumina_manifests")
 MANIFEST_DIR.mkdir(parents=True, exist_ok=True)
-LOG_FILE = Path("/mnt/ssd/research/cfdna/logs/day2_b2_harm.log")
+LOG_FILE = Path("work/logs/day2_b2_harm.log")
 PROJECTS = ["TCGA-COAD", "TCGA-LIHC", "TCGA-LUAD", "TCGA-BRCA", "TCGA-PAAD"]
 N_BLOCKS = 9520
 

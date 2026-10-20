@@ -34,10 +34,10 @@ import numpy as np
 import pandas as pd
 from scipy import stats
 
-PROC_DIR = Path("/mnt/ssd/research/cfdna/processed")
+PROC_DIR = Path("work/processed")
 LABELS_PATH = PROC_DIR / "GSE186458_mixtures_labels_v2.parquet"
 OUT_PATH = PROC_DIR / "GSE186458_fragment_profiles_v2.parquet"
-LOG_FILE = Path("/mnt/ssd/research/cfdna/logs/day2_b5.log")
+LOG_FILE = Path("work/logs/day2_b5.log")
 
 BIN_EDGES = np.arange(100, 251)  # 100..250 inclusive (150 bins, 151 edges)
 

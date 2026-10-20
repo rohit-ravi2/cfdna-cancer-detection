@@ -23,8 +23,8 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-PROC = Path("/mnt/ssd/research/cfdna/processed")
-LOG = Path("/mnt/ssd/research/cfdna/logs/day2_b4.log")
+PROC = Path("work/processed")
+LOG = Path("work/logs/day2_b4.log")
 
 NEW_TFS = [0.002, 0.20]
 TISSUES = ["colon", "liver", "lung", "breast", "pancreas"]

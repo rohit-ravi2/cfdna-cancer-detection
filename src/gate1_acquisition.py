@@ -2,7 +2,7 @@
 Gate 1: Data acquisition for cfDNA methylation cancer detection.
 
 This script is resumable. Each cohort downloads to its own directory under
-/mnt/hdd/research/cfdna/raw/. Existing non-empty files are skipped.
+work/raw/. Existing non-empty files are skipped.
 
 Downloads (in priority order):
   - Loyfer UXM atlas (block-level reference; hg19 + hg38)        DONE inline
@@ -15,8 +15,8 @@ Downloads (in priority order):
   - TCGA methylation manifests (450K array, processed)
 
 Run:
-    source /home/rohit/venvs/cfdna/bin/activate
-    python /mnt/ssd/research/cfdna/src/gate1_acquisition.py
+    source venvs/cfdna/bin/activate
+    python work/src/gate1_acquisition.py
 """
 
 import os
@@ -32,8 +32,8 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from tqdm import tqdm
 
 
-HDD = Path('/mnt/hdd/research/cfdna/raw')
-SSD = Path('/mnt/ssd/research/cfdna')
+HDD = Path('work/raw')
+SSD = Path('work')
 LOG_DIR = SSD / 'logs'
 
 logging.basicConfig(

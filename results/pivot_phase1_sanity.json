@@ -1,0 +1,512 @@
+{
+  "atlas": "Atlas.U250.l4.hg38.full.tsv",
+  "n_cfdna": 23,
+  "n_wbc": 23,
+  "loyfer_published": {
+    "granulocyte": 0.3,
+    "monocyte_macrophage": 0.2,
+    "lymphocyte": 0.03,
+    "liver_hepatocyte": 0.03,
+    "endothelial": 0.06,
+    "erythroid": 0.08
+  },
+  "method_A_nnls_cfdna": {
+    "granulocyte": {
+      "n": 23,
+      "mean": 0.27552080312644656,
+      "std": 0.08141912936154244,
+      "median": 0.26293705868307304
+    },
+    "lymphocyte": {
+      "n": 23,
+      "mean": 0.058969511682835804,
+      "std": 0.015980738846683596,
+      "median": 0.055016100612796236
+    },
+    "monocyte_macrophage": {
+      "n": 23,
+      "mean": 0.19912117408938498,
+      "std": 0.05699199363060413,
+      "median": 0.19069634109561662
+    },
+    "erythroid": {
+      "n": 23,
+      "mean": 0.09326911376861316,
+      "std": 0.020308245137174205,
+      "median": 0.08867764753001658
+    },
+    "megakaryocyte": {
+      "n": 23,
+      "mean": 0.27708438269666347,
+      "std": 0.08169921974331175,
+      "median": 0.2674121067843255
+    },
+    "colon_epithelial": {
+      "n": 23,
+      "mean": 0.0,
+      "std": 0.0,
+      "median": 0.0
+    },
+    "liver_hepatocyte": {
+      "n": 23,
+      "mean": 0.0146562645481759,
+      "std": 0.0243649380427396,
+      "median": 0.0014586907753413865
+    },
+    "pancreas_epithelial": {
+      "n": 23,
+      "mean": 0.0002609842198238044,
+      "std": 0.0012516363485181776,
+      "median": 0.0
+    },
+    "breast_epithelial": {
+      "n": 23,
+      "mean": 0.0,
+      "std": 0.0,
+      "median": 0.0
+    },
+    "lung_epithelial": {
+      "n": 23,
+      "mean": 0.0,
+      "std": 0.0,
+      "median": 0.0
+    },
+    "endothelial": {
+      "n": 23,
+      "mean": 0.03244083397593149,
+      "std": 0.022845118663139378,
+      "median": 0.031174677397263113
+    }
+  },
+  "method_A_nnls_wbc": {
+    "granulocyte": {
+      "n": 23,
+      "mean": 0.522727080062958,
+      "std": 0.13188587717029288,
+      "median": 0.52182852800035
+    },
+    "lymphocyte": {
+      "n": 23,
+      "mean": 0.29249714093976864,
+      "std": 0.12227818515121794,
+      "median": 0.2983882908711172
+    },
+    "monocyte_macrophage": {
+      "n": 23,
+      "mean": 0.14977224272621012,
+      "std": 0.026737621786549426,
+      "median": 0.14875628423336898
+    },
+    "erythroid": {
+      "n": 23,
+      "mean": 0.028501960731929808,
+      "std": 0.006655404940562376,
+      "median": 0.029512548447233968
+    },
+    "megakaryocyte": {
+      "n": 23,
+      "mean": 0.00176256912981329,
+      "std": 0.003592076768718216,
+      "median": 0.0
+    },
+    "colon_epithelial": {
+      "n": 23,
+      "mean": 0.0,
+      "std": 0.0,
+      "median": 0.0
+    },
+    "liver_hepatocyte": {
+      "n": 23,
+      "mean": 0.0,
+      "std": 0.0,
+      "median": 0.0
+    },
+    "pancreas_epithelial": {
+      "n": 23,
+      "mean": 0.0,
+      "std": 0.0,
+      "median": 0.0
+    },
+    "breast_epithelial": {
+      "n": 23,
+      "mean": 0.0,
+      "std": 0.0,
+      "median": 0.0
+    },
+    "lung_epithelial": {
+      "n": 23,
+      "mean": 0.0,
+      "std": 0.0,
+      "median": 0.0
+    },
+    "endothelial": {
+      "n": 23,
+      "mean": 0.0,
+      "std": 0.0,
+      "median": 0.0
+    }
+  },
+  "method_B_uxm_cfdna": {
+    "granulocyte": {
+      "n": 23,
+      "mean": 0.2915231826086956,
+      "std": 0.10699140446517039,
+      "median": 0.2837781
+    },
+    "lymphocyte": {
+      "n": 23,
+      "mean": 0.027452399999999995,
+      "std": 0.014737062534612889,
+      "median": 0.0220439
+    },
+    "monocyte_macrophage": {
+      "n": 23,
+      "mean": 0.191833047826087,
+      "std": 0.07214714459264905,
+      "median": 0.1720739
+    },
+    "erythroid": {
+      "n": 23,
+      "mean": 0.03526385652173913,
+      "std": 0.017392330191203304,
+      "median": 0.0335785
+    },
+    "megakaryocyte": {
+      "n": 23,
+      "mean": 0.314967747826087,
+      "std": 0.11988945512919533,
+      "median": 0.2757399
+    },
+    "colon_epithelial": {
+      "n": 23,
+      "mean": 0.000475995652173913,
+      "std": 0.0007159222713511578,
+      "median": 0.0
+    },
+    "liver_hepatocyte": {
+      "n": 23,
+      "mean": 0.030337452173913048,
+      "std": 0.02816751664551449,
+      "median": 0.0268588
+    },
+    "pancreas_epithelial": {
+      "n": 23,
+      "mean": 0.006069169565217392,
+      "std": 0.0067094801699084895,
+      "median": 0.0052459
+    },
+    "breast_epithelial": {
+      "n": 23,
+      "mean": 0.0013359217391304347,
+      "std": 0.0017638716555444733,
+      "median": 0.0004367
+    },
+    "lung_epithelial": {
+      "n": 23,
+      "mean": 0.0003364217391304348,
+      "std": 0.0009849361977289888,
+      "median": 0.0
+    },
+    "endothelial": {
+      "n": 23,
+      "mean": 0.057046386956521734,
+      "std": 0.020757571540925505,
+      "median": 0.0564132
+    }
+  },
+  "method_B_uxm_wbc": {
+    "granulocyte": {
+      "n": 23,
+      "mean": 0.5584051782608696,
+      "std": 0.13478300979409952,
+      "median": 0.5446018
+    },
+    "lymphocyte": {
+      "n": 23,
+      "mean": 0.3222328130434783,
+      "std": 0.12436871428540913,
+      "median": 0.31774549999999996
+    },
+    "monocyte_macrophage": {
+      "n": 23,
+      "mean": 0.10386081739130434,
+      "std": 0.035903680081063,
+      "median": 0.1021658
+    },
+    "erythroid": {
+      "n": 23,
+      "mean": 0.0003583521739130435,
+      "std": 0.0005534699547315227,
+      "median": 9e-07
+    },
+    "megakaryocyte": {
+      "n": 23,
+      "mean": 0.00011861739130434783,
+      "std": 0.0005679323636523935,
+      "median": 0.0
+    },
+    "colon_epithelial": {
+      "n": 23,
+      "mean": 0.0003880391304347827,
+      "std": 0.0007433287194891579,
+      "median": 0.0
+    },
+    "liver_hepatocyte": {
+      "n": 23,
+      "mean": 0.0002102608695652174,
+      "std": 0.0007660739471422578,
+      "median": 0.0
+    },
+    "pancreas_epithelial": {
+      "n": 23,
+      "mean": 0.0008716913043478263,
+      "std": 0.002257066292761679,
+      "median": 0.0001259
+    },
+    "breast_epithelial": {
+      "n": 23,
+      "mean": 0.0007731304347826087,
+      "std": 0.0010139126636383264,
+      "median": 5.95e-05
+    },
+    "lung_epithelial": {
+      "n": 23,
+      "mean": 0.0001722391304347826,
+      "std": 0.00043986867331380385,
+      "median": 0.0
+    },
+    "endothelial": {
+      "n": 23,
+      "mean": 0.0037527956521739127,
+      "std": 0.01323887110988211,
+      "median": 0.0
+    }
+  },
+  "method_agreement": {
+    "per_celltype": {
+      "Adipocytes": {
+        "pearson_r": -0.01926152959301329,
+        "A_mean": 0.011581226071445263,
+        "B_mean": 0.00012680869565217392
+      },
+      "Bladder-Ep": {
+        "pearson_r": NaN,
+        "A_mean": 0.0,
+        "B_mean": 0.007100195652173914
+      },
+      "Blood-B": {
+        "pearson_r": 0.6423882102360835,
+        "A_mean": 0.010097192070806916,
+        "B_mean": 0.0055234173913043475
+      },
+      "Blood-Granul": {
+        "pearson_r": 0.8879509960368375,
+        "A_mean": 0.27552080312644656,
+        "B_mean": 0.2915231826086956
+      },
+      "Blood-Mono+Macro": {
+        "pearson_r": 0.8794344179896844,
+        "A_mean": 0.19912117408938498,
+        "B_mean": 0.191833047826087
+      },
+      "Blood-NK": {
+        "pearson_r": 0.7897049914671593,
+        "A_mean": 0.042966636261426466,
+        "B_mean": 0.016613865217391305
+      },
+      "Blood-T": {
+        "pearson_r": 0.32063020203847364,
+        "A_mean": 0.005905683350602407,
+        "B_mean": 0.005315117391304347
+      },
+      "Breast-Basal-Ep": {
+        "pearson_r": NaN,
+        "A_mean": 0.0,
+        "B_mean": 0.0
+      },
+      "Breast-Luminal-Ep": {
+        "pearson_r": NaN,
+        "A_mean": 0.0,
+        "B_mean": 0.0013359217391304347
+      },
+      "Colon-Ep": {
+        "pearson_r": NaN,
+        "A_mean": 0.0,
+        "B_mean": 0.00021219565217391303
+      },
+      "Endothel": {
+        "pearson_r": 0.7539593170675281,
+        "A_mean": 0.03244083397593149,
+        "B_mean": 0.057046386956521734
+      },
+      "Epid-Kerat": {
+        "pearson_r": NaN,
+        "A_mean": 0.0,
+        "B_mean": 0.0002201826086956522
+      },
+      "Eryth-prog": {
+        "pearson_r": 0.6559774118381626,
+        "A_mean": 0.09326911376861316,
+        "B_mean": 0.03526385652173913
+      },
+      "Fallopian-Ep": {
+        "pearson_r": -0.08892123304962603,
+        "A_mean": 9.80468921954901e-05,
+        "B_mean": 0.003904034782608695
+      },
+      "Gastric-Ep": {
+        "pearson_r": NaN,
+        "A_mean": 0.0,
+        "B_mean": 0.0003612739130434783
+      },
+      "Head-Neck-Ep": {
+        "pearson_r": NaN,
+        "A_mean": 0.0,
+        "B_mean": 0.0017513521739130435
+      },
+      "Heart-Cardio": {
+        "pearson_r": 0.5728996593257896,
+        "A_mean": 0.0002820299958074109,
+        "B_mean": 0.00833122608695652
+      },
+      "Heart-Fibro": {
+        "pearson_r": 0.07121886642090747,
+        "A_mean": 0.013777408536456513,
+        "B_mean": 0.001144882608695652
+      },
+      "Kidney-Ep": {
+        "pearson_r": NaN,
+        "A_mean": 0.0,
+        "B_mean": 0.0
+      },
+      "Liver-Hep": {
+        "pearson_r": 0.9194775424629081,
+        "A_mean": 0.0146562645481759,
+        "B_mean": 0.030337452173913048
+      },
+      "Lung-Ep-Alveo": {
+        "pearson_r": NaN,
+        "A_mean": 0.0,
+        "B_mean": 0.0
+      },
+      "Lung-Ep-Bron": {
+        "pearson_r": NaN,
+        "A_mean": 0.0,
+        "B_mean": 0.0003364217391304348
+      },
+      "Neuron": {
+        "pearson_r": -0.03685031882466405,
+        "A_mean": 0.00023257938526521145,
+        "B_mean": 0.004068673913043478
+      },
+      "Oligodend": {
+        "pearson_r": NaN,
+        "A_mean": 0.0,
+        "B_mean": 0.0002977695652173913
+      },
+      "Ovary-Ep": {
+        "pearson_r": NaN,
+        "A_mean": 0.0,
+        "B_mean": 0.0008286347826086956
+      },
+      "Pancreas-Acinar": {
+        "pearson_r": 0.9859879236211363,
+        "A_mean": 8.994626319050935e-05,
+        "B_mean": 0.0003139565217391304
+      },
+      "Pancreas-Alpha": {
+        "pearson_r": NaN,
+        "A_mean": 0.0,
+        "B_mean": 0.00026349130434782605
+      },
+      "Pancreas-Beta": {
+        "pearson_r": -0.04545454545454548,
+        "A_mean": 0.00017103795663329506,
+        "B_mean": 3.1043478260869565e-06
+      },
+      "Pancreas-Delta": {
+        "pearson_r": NaN,
+        "A_mean": 0.0,
+        "B_mean": 0.00010966086956521739
+      },
+      "Pancreas-Duct": {
+        "pearson_r": NaN,
+        "A_mean": 0.0,
+        "B_mean": 0.005378956521739131
+      },
+      "Megakaryocytes": {
+        "pearson_r": 0.6821387501755812,
+        "A_mean": 0.27708438269666347,
+        "B_mean": 0.314967747826087
+      },
+      "Prostate-Ep": {
+        "pearson_r": -0.045454545454545435,
+        "A_mean": 6.544319417349693e-05,
+        "B_mean": 0.0001341478260869565
+      },
+      "Skeletal-Musc": {
+        "pearson_r": 0.11773777338925574,
+        "A_mean": 0.0001497470845305776,
+        "B_mean": 0.0017558130434782609
+      },
+      "Small-Int-Ep": {
+        "pearson_r": NaN,
+        "A_mean": 0.0,
+        "B_mean": 0.0002638
+      },
+      "Smooth-Musc": {
+        "pearson_r": -0.07407494522692924,
+        "A_mean": 0.011228284634626157,
+        "B_mean": 0.013279556521739129
+      },
+      "Thyroid-Ep": {
+        "pearson_r": NaN,
+        "A_mean": 0.0,
+        "B_mean": 5.382608695652174e-05
+      }
+    }
+  },
+  "verdict": {
+    "granu_method_A": 0.27552080312644656,
+    "granu_method_B": 0.2915231826086956,
+    "granu_pass_band": [
+      0.15,
+      0.45
+    ],
+    "method_A_pass": true,
+    "method_B_pass": true,
+    "overall_pass": true
+  },
+  "loyfer_relative_error_uxm": {
+    "granulocyte": {
+      "published": 0.3,
+      "observed_uxm": 0.2915231826086956,
+      "rel_err": 0.02825605797101468
+    },
+    "monocyte_macrophage": {
+      "published": 0.2,
+      "observed_uxm": 0.191833047826087,
+      "rel_err": 0.040834760869565
+    },
+    "lymphocyte": {
+      "published": 0.03,
+      "observed_uxm": 0.027452399999999995,
+      "rel_err": 0.08492000000000013
+    },
+    "liver_hepatocyte": {
+      "published": 0.03,
+      "observed_uxm": 0.030337452173913048,
+      "rel_err": 0.011248405797101638
+    },
+    "endothelial": {
+      "published": 0.06,
+      "observed_uxm": 0.057046386956521734,
+      "rel_err": 0.04922688405797106
+    },
+    "erythroid": {
+      "published": 0.08,
+      "observed_uxm": 0.03526385652173913,
+      "rel_err": 0.5592017934782609
+    }
+  }
+}

@@ -10,12 +10,12 @@ and are done outside this script). Run this to confirm the environment is
 healthy before starting later gates.
 
 Venvs:
-  - Main:        /home/rohit/venvs/cfdna/          (numpy/pandas/torch/etc.)
-  - methylprep:  /home/rohit/venvs/cfdna-methylprep/  (idat->beta only)
+  - Main:        venvs/cfdna/          (numpy/pandas/torch/etc.)
+  - methylprep:  venvs/cfdna-methylprep/  (idat->beta only)
 
 Outputs:
   - Prints package versions to stdout.
-  - Appends a verification line to /mnt/ssd/research/cfdna/logs/gates.log
+  - Appends a verification line to work/logs/gates.log
     only when run with --log (so re-running for inspection doesn't pollute
     the gate log).
 """
@@ -28,12 +28,12 @@ import subprocess
 import sys
 from pathlib import Path
 
-PROJECT_ROOT = Path("/mnt/ssd/research/cfdna")
-RAW_ROOT = Path("/mnt/hdd/research/cfdna/raw")
+PROJECT_ROOT = Path("work")
+RAW_ROOT = Path("work/raw")
 GATE_LOG = PROJECT_ROOT / "logs" / "gates.log"
 
-MAIN_VENV_PY = Path("/home/rohit/venvs/cfdna/bin/python")
-METHYLPREP_VENV_PY = Path("/home/rohit/venvs/cfdna-methylprep/bin/python")
+MAIN_VENV_PY = Path("venvs/cfdna/bin/python")
+METHYLPREP_VENV_PY = Path("venvs/cfdna-methylprep/bin/python")
 
 REQUIRED_DIRS = [
     PROJECT_ROOT / "src",

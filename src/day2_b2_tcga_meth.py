@@ -11,7 +11,7 @@ Downloads a *sample* (capped at MAX_PER_PROJECT) of methylation files per
 project. The 450K beta value files are large (~120 MB) so we cap to 30 per
 project for ~600 MB per project. Total budget ~3 GB.
 
-Stores under /mnt/hdd/research/cfdna/raw/tcga_methylation/<project>/.
+Stores under work/raw/tcga_methylation/<project>/.
 
 Each TCGA 450K file: columns = [Composite Element REF, Beta_value, ...]
 where Composite Element REF = Illumina probe ID.
@@ -28,9 +28,9 @@ from pathlib import Path
 import requests
 import pandas as pd
 
-OUT_DIR = Path("/mnt/hdd/research/cfdna/raw/tcga_methylation")
+OUT_DIR = Path("work/raw/tcga_methylation")
 OUT_DIR.mkdir(parents=True, exist_ok=True)
-LOG = Path("/mnt/ssd/research/cfdna/logs/day2_b2_tcga.log")
+LOG = Path("work/logs/day2_b2_tcga.log")
 
 PROJECTS = ["TCGA-COAD", "TCGA-LIHC", "TCGA-LUAD", "TCGA-BRCA", "TCGA-PAAD"]
 MAX_PER_PROJECT = 30  # tumor only

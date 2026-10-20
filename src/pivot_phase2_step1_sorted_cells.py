@@ -13,8 +13,8 @@ Source: GSE186458 (the atlas itself), supplementary .pat.gz + .beta files
 for the sorted cell-type GSMs.
 
 Outputs:
-    /mnt/hdd/research/cfdna/raw/GSE186458/pivot/sorted_cells/<GSM>_<title>.{pat.gz,beta,pat.gz.csi}
-    /mnt/hdd/research/cfdna/raw/GSE186458/pivot/sorted_cells/manifest.json
+    work/raw/GSE186458/pivot/sorted_cells/<GSM>_<title>.{pat.gz,beta,pat.gz.csi}
+    work/raw/GSE186458/pivot/sorted_cells/manifest.json
 """
 import gzip
 import hashlib
@@ -28,10 +28,10 @@ import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
-SERIES_MATRIX = Path("/mnt/hdd/research/cfdna/raw/GSE186458/GSE186458_series_matrix.txt.gz")
-SORTED_DIR    = Path("/mnt/hdd/research/cfdna/raw/GSE186458/pivot/sorted_cells")
-GATES_LOG     = Path("/mnt/ssd/research/cfdna/logs/gates.log")
-LOG_DIR       = Path("/mnt/ssd/research/cfdna/logs"); LOG_DIR.mkdir(parents=True, exist_ok=True)
+SERIES_MATRIX = Path("work/raw/GSE186458/GSE186458_series_matrix.txt.gz")
+SORTED_DIR    = Path("work/raw/GSE186458/pivot/sorted_cells")
+GATES_LOG     = Path("work/logs/gates.log")
+LOG_DIR       = Path("work/logs"); LOG_DIR.mkdir(parents=True, exist_ok=True)
 STDERR_LOG    = LOG_DIR / "pivot_phase2_step1.log"
 
 # Cell-type title regexes (anchored on Sample_title prefix). Loyfer uses
@@ -231,9 +231,9 @@ def _download_item(item: dict) -> dict:
     if pat_ok and not csi_path.exists():
         try:
             env = os.environ.copy()
-            env["PATH"] = f"/home/rohit/miniconda3/envs/wgbs/bin:/home/rohit/tools/wgbs_tools:{env.get('PATH','')}"
+            env["PATH"] = os.environ.get("WGBS_BIN_DIR", "") + ":" + os.environ.get("WGBS_DIR", "") + ":" + env.get("PATH", "")
             r = subprocess.run(
-                ["/home/rohit/tools/wgbs_tools/wgbstools", "index", str(pat_path)],
+                [os.environ.get("WGBSTOOLS", "wgbstools"), "index", str(pat_path)],
                 env=env, capture_output=True, text=True, timeout=120,
             )
             if r.returncode != 0:

@@ -20,9 +20,9 @@ from pathlib import Path
 
 import requests
 
-HDD_RAW = Path("/mnt/hdd/research/cfdna/raw/GSE186458/pivot/sorted_cells")
+HDD_RAW = Path("work/raw/GSE186458/pivot/sorted_cells")
 HDD_RAW.mkdir(parents=True, exist_ok=True)
-LOG = Path("/mnt/ssd/research/cfdna/logs/day2_b1.log")
+LOG = Path("work/logs/day2_b1.log")
 
 # These cell types are the blood lineages we need on top of what's there.
 TARGET_KEYWORDS = [
@@ -173,7 +173,7 @@ def main():
     delta_gb = (total_bytes_post - total_bytes_pre) / 1e9
     log(f"=== done.  downloaded={n_downloaded} already={n_already} failed={n_failed} +{delta_gb:.2f}GB ===")
 
-    out_json = Path("/mnt/ssd/research/cfdna/processed/day2_b1_sorted_cells_download.json")
+    out_json = Path("work/processed/day2_b1_sorted_cells_download.json")
     with open(out_json, "w") as f:
         json.dump({
             "n_targets": len(targets_d),

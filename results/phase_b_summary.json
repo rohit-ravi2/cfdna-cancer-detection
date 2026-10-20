@@ -1,0 +1,55 @@
+{
+  "phase_b1_healthy_expansion": {
+    "real_cfdna_n": 23,
+    "WBC_n": 23,
+    "sorted_cell_refs_n": 89,
+    "note": "GSE186888 unavailable (raw withheld for patient privacy); GSE160570 wrong (ovarian cell line); GSE235860 wrong (mouse lung). GSE186458 sorted-cell tissue + blood lineage references expanded as B3 substitute. Real cfDNA samples remain 23 (Loyfer-2022 limit); model treats 23 real + 89 sorted-cell refs as effective healthy/reference panel."
+  },
+  "phase_b2_tcga": {
+    "downloaded_so_far_gb": 1.4,
+    "projects": [
+      "TCGA-COAD (30 done)",
+      "TCGA-LIHC (29/30)",
+      "TCGA-LUAD (30 done)",
+      "TCGA-BRCA (in progress)",
+      "TCGA-PAAD (pending)"
+    ],
+    "platform": "Illumina HM450"
+  },
+  "phase_b4_mixtures_v2": {
+    "n_total": 1058,
+    "n_cancer": 1035,
+    "n_healthy": 23,
+    "n_tumor_fractions": 10,
+    "tumor_fraction_grid": [
+      0.0,
+      0.001,
+      0.002,
+      0.005,
+      0.01,
+      0.03,
+      0.05,
+      0.1,
+      0.15,
+      0.2
+    ],
+    "stages_proxy": {
+      "1": 345,
+      "4": 345,
+      "3": 230,
+      "2": 115,
+      "0": 23
+    }
+  },
+  "phase_b5_fragmentomics": {
+    "n_samples": 1058,
+    "n_features": 8,
+    "Pearson_short_frac_vs_tumor_fraction": 0.62,
+    "note": "Real BAMs unavailable (GSE186458 deposits .beta only; raw at EGA controlled access). Simulated per Cristiano 2019 / Mouliere 2018 healthy-cancer fragment-size shift model with donor-specific noise."
+  },
+  "phase_b_totals": {
+    "raw_hdd_gb": 76.130332061,
+    "n_healthy_effective": 112,
+    "n_mixtures_total": 1058
+  }
+}

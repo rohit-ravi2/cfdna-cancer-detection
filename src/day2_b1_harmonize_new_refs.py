@@ -6,9 +6,9 @@ Reads the .hg38.beta files in pivot/sorted_cells/ that we don't yet have
 harmonized (compared to existing harmonized matrices), runs wgbstools
 beta_to_blocks, and produces:
 
-  /mnt/ssd/research/cfdna/processed/sorted_cells_harmonized.parquet
+  work/processed/sorted_cells_harmonized.parquet
     [9520 blocks x (all sorted-cell samples)]
-  /mnt/ssd/research/cfdna/processed/sorted_cells_metadata.tsv
+  work/processed/sorted_cells_metadata.tsv
     [gsm, cell_type, source_name, atlas_cov, mean_depth]
 """
 import os
@@ -21,16 +21,16 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-HDD_RAW = Path("/mnt/hdd/research/cfdna/raw/GSE186458/pivot/sorted_cells")
-PROC_DIR = Path("/mnt/ssd/research/cfdna/processed")
+HDD_RAW = Path("work/raw/GSE186458/pivot/sorted_cells")
+PROC_DIR = Path("work/processed")
 TMP_DIR = Path("/tmp/wgbs_harm_b1")
 TMP_DIR.mkdir(parents=True, exist_ok=True)
 ATLAS_BLOCKS_BED = PROC_DIR / "atlas_blocks_hg38.bed"
-WGBSTOOLS = "/home/rohit/tools/wgbs_tools/wgbstools"
+WGBSTOOLS = os.environ.get("WGBSTOOLS", "wgbstools")
 N_BLOCKS = 9520
 OUT_PARQUET = PROC_DIR / "sorted_cells_harmonized.parquet"
 OUT_META = PROC_DIR / "sorted_cells_metadata.tsv"
-LOG_FILE = Path("/mnt/ssd/research/cfdna/logs/day2_b1_harm.log")
+LOG_FILE = Path("work/logs/day2_b1_harm.log")
 
 
 def log(msg):
@@ -63,7 +63,7 @@ def run_beta_to_blocks(beta_path: Path) -> Path:
         str(beta_path),
     ]
     env = os.environ.copy()
-    env["PATH"] = f"/home/rohit/miniconda3/envs/wgbs/bin:{env.get('PATH','')}"
+    env["PATH"] = os.environ.get("WGBS_BIN_DIR", "") + ":" + env.get("PATH", "")
     r = subprocess.run(cmd, capture_output=True, text=True, env=env)
     if r.returncode != 0:
         raise RuntimeError(f"beta_to_blocks failed for {beta_path.name}: {r.stderr[:200]}")

@@ -41,10 +41,10 @@ import torch.nn as nn
 import torch.nn.functional as F
 from torch.utils.data import DataLoader, TensorDataset
 
-PROC_DIR = Path("/mnt/ssd/research/cfdna/processed")
-MODELS_DIR = Path("/mnt/ssd/research/cfdna/models")
+PROC_DIR = Path("work/processed")
+MODELS_DIR = Path("work/models")
 MODELS_DIR.mkdir(parents=True, exist_ok=True)
-LOG_FILE = Path("/mnt/ssd/research/cfdna/logs/day2_c.log")
+LOG_FILE = Path("work/logs/day2_c.log")
 
 N_BLOCKS = 9520
 SEED = 42
@@ -68,7 +68,7 @@ def log(m):
 
 def load_atlas_celltypes():
     """Return ordered list of 40 atlas cell types (from Loyfer atlas TSV header)."""
-    atlas_tsv = "/mnt/hdd/research/cfdna/raw/loyfer_atlas/Atlas.U250.l4.hg38.full.tsv"
+    atlas_tsv = "work/raw/loyfer_atlas/Atlas.U250.l4.hg38.full.tsv"
     df = pd.read_csv(atlas_tsv, sep="\t", nrows=1)
     cols = [c for c in df.columns if c not in ("chr", "start", "end", "startCpG", "endCpG", "target", "name", "direction")]
     return cols

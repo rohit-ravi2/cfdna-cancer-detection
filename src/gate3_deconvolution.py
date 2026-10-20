@@ -13,10 +13,10 @@ since per-(sample, block) depth is not stored). For GSE122126 we use
 unit weights (array data, depth is uniform).
 
 Outputs:
-  /mnt/ssd/research/cfdna/processed/{GSE186007,GSE122126}_deconv.parquet
-  /mnt/ssd/research/cfdna/processed/cell_type_groups.json
-  /mnt/ssd/research/cfdna/results/gate3_sanity.json
-  /mnt/ssd/research/cfdna/results/gate3_sanity.png
+  work/processed/{GSE186007,GSE122126}_deconv.parquet
+  work/processed/cell_type_groups.json
+  work/results/gate3_sanity.json
+  work/results/gate3_sanity.png
 """
 from __future__ import annotations
 
@@ -34,10 +34,10 @@ from scipy.optimize import nnls
 from scipy.stats import ttest_ind
 from tqdm import tqdm
 
-ATLAS_TSV = Path("/mnt/hdd/research/cfdna/raw/loyfer_atlas/Atlas.U250.l4.hg38.full.tsv")
-PROC_DIR = Path("/mnt/ssd/research/cfdna/processed")
-RES_DIR = Path("/mnt/ssd/research/cfdna/results")
-LOG_DIR = Path("/mnt/ssd/research/cfdna/logs")
+ATLAS_TSV = Path("work/raw/loyfer_atlas/Atlas.U250.l4.hg38.full.tsv")
+PROC_DIR = Path("work/processed")
+RES_DIR = Path("work/results")
+LOG_DIR = Path("work/logs")
 GATES_LOG = LOG_DIR / "gates.log"
 
 RES_DIR.mkdir(parents=True, exist_ok=True)

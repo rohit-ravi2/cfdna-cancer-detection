@@ -1,5 +1,5 @@
 {
-  "model_path": "/mnt/ssd/research/cfdna/models/learned_deconv_nanaware.pt",
+  "model_path": "work/models/learned_deconv_nanaware.pt",
   "best_val_pearson": 0.9985615777272187,
   "cross_coverage": {
     "keep_100": {

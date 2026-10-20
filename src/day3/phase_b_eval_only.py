@@ -8,9 +8,9 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-PROC = Path("/mnt/ssd/research/cfdna/processed")
-MODELS = Path("/mnt/ssd/research/cfdna/models")
-LOG = Path("/mnt/ssd/research/cfdna/logs/day3_phase_b.log")
+PROC = Path("work/processed")
+MODELS = Path("work/models")
+LOG = Path("work/logs/day3_phase_b.log")
 N_BLOCKS = 9520
 
 

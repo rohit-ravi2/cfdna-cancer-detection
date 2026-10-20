@@ -15,9 +15,9 @@ import urllib.request
 import urllib.error
 from pathlib import Path
 
-OUT_DIR = Path("/mnt/hdd/research/cfdna/raw/GSE186458/pivot")
+OUT_DIR = Path("work/raw/GSE186458/pivot")
 OUT_DIR.mkdir(parents=True, exist_ok=True)
-FILELIST = "/mnt/hdd/research/cfdna/raw/GSE186458/filelist.txt"
+FILELIST = "work/raw/GSE186458/filelist.txt"
 
 # GEO supplementary URL pattern:
 # https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM6810nnn/GSMxxxxxxx/suppl/<filename>

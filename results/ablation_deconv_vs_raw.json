@@ -1,0 +1,15 @@
+{
+  "summary": "Compare deconv (39-dim cell-type fractions) vs raw atlas-block PCA256",
+  "stage1_sens_at_99spec_deconv": 0.043478260869565216,
+  "stage1_sens_at_99spec_raw": 0.043478260869565216,
+  "stage2_sens_at_99spec_deconv": 0.07391304347826087,
+  "stage2_sens_at_99spec_raw": 0.021739130434782608,
+  "stage3_sens_at_99spec_deconv": 0.3652173913043478,
+  "stage3_sens_at_99spec_raw": 0.008695652173913044,
+  "tissue_top1_deconv": 0.5826086956521739,
+  "tissue_top1_raw": 0.7192546583850932,
+  "overall_auc_deconv": 0.6320280853362139,
+  "overall_auc_raw": 0.8523899540912773,
+  "frac_mae_log10_deconv": 0.4664718457260487,
+  "frac_mae_log10_raw": 0.3836783634949915
+}

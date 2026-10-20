@@ -12,7 +12,7 @@ Investigation:
   E3: Compute mean megakaryocyte signal in cfDNA vs WBC vs sorted-cells
       to determine if it's biological or atlas artifact.
 
-Outputs: /mnt/ssd/research/cfdna/results/megakaryocyte_investigation.json
+Outputs: work/results/megakaryocyte_investigation.json
 """
 import json
 import sys
@@ -21,8 +21,8 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-PROC = Path("/mnt/ssd/research/cfdna/processed")
-RES = Path("/mnt/ssd/research/cfdna/results")
+PROC = Path("work/processed")
+RES = Path("work/results")
 
 
 def main():

@@ -4,7 +4,7 @@ PIVOT_PHASE2 STEP 2 — In-silico mixture generation via `wgbstools mix_pat`.
 
 Design:
     healthy donors: 23  (GSM6810003..GSM6810025) -- already on disk at
-                       /mnt/hdd/research/cfdna/raw/GSE186458/pivot/
+                       work/raw/GSE186458/pivot/
     tissue-of-origin: 5 categories
         colon    : Colon-Left-Epithelium  +  Colon-Right-Epithelium
         liver    : Liver-Hepatocytes
@@ -20,10 +20,10 @@ Performance: with `-L atlas_blocks.bed`, mix_pat runs ~11s; pat2beta ~2s;
 beta_to_blocks ~1s. With 6 workers in parallel, ~30 min total.
 
 Outputs:
-    /mnt/ssd/research/cfdna/processed/mixtures_beta/*.bin  (one per mix; 19KB each)
-    /mnt/hdd/research/cfdna/raw/GSE186458/pivot/mixtures/manifest.tsv
-    /mnt/ssd/research/cfdna/processed/GSE186458_mixtures_betas.parquet   [9520 x 828]
-    /mnt/ssd/research/cfdna/processed/GSE186458_mixtures_labels.parquet  [828 x 4]
+    work/processed/mixtures_beta/*.bin  (one per mix; 19KB each)
+    work/raw/GSE186458/pivot/mixtures/manifest.tsv
+    work/processed/GSE186458_mixtures_betas.parquet   [9520 x 828]
+    work/processed/GSE186458_mixtures_labels.parquet  [828 x 4]
 """
 import json
 import os
@@ -38,15 +38,15 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-WGBSTOOLS = "/home/rohit/tools/wgbs_tools/wgbstools"
-PATH_PREFIX = "/home/rohit/miniconda3/envs/wgbs/bin:/home/rohit/tools/wgbs_tools"
-ATLAS_BED = Path("/mnt/ssd/research/cfdna/processed/atlas_blocks_hg38.bed")
+WGBSTOOLS = os.environ.get("WGBSTOOLS", "wgbstools")
+PATH_PREFIX = os.environ.get("WGBS_BIN_DIR", "") + ":" + os.environ.get("WGBS_DIR", "")
+ATLAS_BED = Path("work/processed/atlas_blocks_hg38.bed")
 
-HEALTHY_DIR = Path("/mnt/hdd/research/cfdna/raw/GSE186458/pivot")
-SORTED_DIR  = Path("/mnt/hdd/research/cfdna/raw/GSE186458/pivot/sorted_cells")
-MIX_DIR     = Path("/mnt/hdd/research/cfdna/raw/GSE186458/pivot/mixtures")
-BIN_DIR     = Path("/mnt/ssd/research/cfdna/processed/mixtures_beta")
-LOG_DIR     = Path("/mnt/ssd/research/cfdna/logs")
+HEALTHY_DIR = Path("work/raw/GSE186458/pivot")
+SORTED_DIR  = Path("work/raw/GSE186458/pivot/sorted_cells")
+MIX_DIR     = Path("work/raw/GSE186458/pivot/mixtures")
+BIN_DIR     = Path("work/processed/mixtures_beta")
+LOG_DIR     = Path("work/logs")
 GATES_LOG   = LOG_DIR / "gates.log"
 STDERR_LOG  = LOG_DIR / "pivot_phase2_step2.log"
 
@@ -364,7 +364,7 @@ def main():
                             names=["chrom","start","end","cpg_start","cpg_end"])
     beta_df = pd.DataFrame(beta_matrix, columns=sample_ids)
     beta_df.insert(0, "block_id", [f"{r.chrom}:{r.start}-{r.end}" for r in block_idx.itertuples()])
-    beta_df.to_parquet("/mnt/ssd/research/cfdna/processed/GSE186458_mixtures_betas.parquet",
+    beta_df.to_parquet("work/processed/GSE186458_mixtures_betas.parquet",
                        compression="zstd")
     log(f"  wrote betas parquet")
 
@@ -380,7 +380,7 @@ def main():
             "healthy_donor","tumor_donor","mean_beta","block_cov_frac","mean_block_depth"]]
     out_labels = labels[["sample_id","cancer_present","tumor_fraction","tissue_of_origin",
             "healthy_donor","tumor_donor","mean_beta","block_cov_frac","mean_block_depth"]]
-    out_labels.to_parquet("/mnt/ssd/research/cfdna/processed/GSE186458_mixtures_labels.parquet",
+    out_labels.to_parquet("work/processed/GSE186458_mixtures_labels.parquet",
                           compression="zstd")
     log(f"  wrote labels parquet: {len(out_labels)} rows")
 

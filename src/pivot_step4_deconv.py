@@ -17,10 +17,10 @@ Method B — UXM (Loyfer's per-read fragment-level method):
     atlas. We invoke the UXM_deconv CLI directly.
 
 Outputs:
-    /mnt/ssd/research/cfdna/processed/GSE186458_cfdna_deconv_nnls.parquet
-    /mnt/ssd/research/cfdna/processed/GSE186458_cfdna_deconv_uxm.parquet
-    /mnt/ssd/research/cfdna/processed/GSE186458_wbc_deconv_nnls.parquet  (sanity)
-    /mnt/ssd/research/cfdna/results/pivot_phase1_sanity.json
+    work/processed/GSE186458_cfdna_deconv_nnls.parquet
+    work/processed/GSE186458_cfdna_deconv_uxm.parquet
+    work/processed/GSE186458_wbc_deconv_nnls.parquet  (sanity)
+    work/results/pivot_phase1_sanity.json
 
 Pass criterion: granulocyte family fraction (mean across 23 cfDNA samples)
 is within [15%, 45%] using Method B (UXM). If both methods fail, hard-stop.
@@ -43,23 +43,23 @@ from scipy.optimize import nnls
 from tqdm import tqdm
 
 # --- Paths -------------------------------------------------------------
-PROC_DIR = Path("/mnt/ssd/research/cfdna/processed")
-LOG_DIR = Path("/mnt/ssd/research/cfdna/logs")
-RES_DIR = Path("/mnt/ssd/research/cfdna/results")
+PROC_DIR = Path("work/processed")
+LOG_DIR = Path("work/logs")
+RES_DIR = Path("work/results")
 PROC_DIR.mkdir(parents=True, exist_ok=True)
 LOG_DIR.mkdir(parents=True, exist_ok=True)
 RES_DIR.mkdir(parents=True, exist_ok=True)
 
-ATLAS_TSV = Path("/mnt/hdd/research/cfdna/raw/loyfer_atlas/Atlas.U250.l4.hg38.full.tsv")
+ATLAS_TSV = Path("work/raw/loyfer_atlas/Atlas.U250.l4.hg38.full.tsv")
 # Use U25 for UXM (the canonical UXM atlas: top 25 markers per cell type,
 # ~1000 rows total). U250 (top 250) is for averaged-beta NNLS.
-ATLAS_FOR_UXM = Path("/mnt/hdd/research/cfdna/raw/loyfer_atlas/Atlas.U25.l4.hg38.tsv")
+ATLAS_FOR_UXM = Path("work/raw/loyfer_atlas/Atlas.U25.l4.hg38.tsv")
 GROUPS_JSON = PROC_DIR / "cell_type_groups.json"
 GATES_LOG = LOG_DIR / "gates.log"
 
-PIVOT_RAW = Path("/mnt/hdd/research/cfdna/raw/GSE186458/pivot")
+PIVOT_RAW = Path("work/raw/GSE186458/pivot")
 
-UXM_BIN = "/home/rohit/tools/UXM_deconv/uxm"
+UXM_BIN = os.environ.get("UXM_DIR", ".") + "/uxm"
 META_COLS = ["chr", "start", "end", "startCpG", "endCpG", "target", "name", "direction"]
 
 # Loyfer 2023 published cfDNA family fractions (Figure 5; healthy cfDNA mean)
@@ -173,9 +173,9 @@ def run_uxm(pat_files: list[Path], out_csv: Path, atlas_path: Path,
     log(f"UXM [{label}]: running on {len(pat_files)} samples (atlas={atlas_path.name})")
     env = os.environ.copy()
     env["PATH"] = (
-        "/home/rohit/miniconda3/envs/wgbs/bin:"
-        "/home/rohit/tools/wgbs_tools:"
-        "/home/rohit/tools/UXM_deconv:"
+        os.environ.get("WGBS_BIN_DIR", "") + ":"
+        + os.environ.get("WGBS_DIR", "") + ":"
+        + os.environ.get("UXM_DIR", "") + ":"
         + env.get("PATH", "")
     )
     cmd = [

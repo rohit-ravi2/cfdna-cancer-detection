@@ -1,0 +1,13 @@
+{
+  "n_cfdna": 23,
+  "n_wbc": 23,
+  "cfdna_coverage_mean": 0.9979630982827913,
+  "cfdna_coverage_min": 0.996953781512605,
+  "cfdna_coverage_max": 0.9998949579831933,
+  "wbc_coverage_mean": 0.9967756667884543,
+  "wbc_coverage_min": 0.9961134453781513,
+  "wbc_coverage_max": 0.9995798319327731,
+  "n_blocks": 9520,
+  "hard_stop_threshold": 0.5,
+  "any_sample_below_threshold": false
+}

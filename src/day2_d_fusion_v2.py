@@ -41,11 +41,11 @@ from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import GroupKFold
 
-PROC = Path("/mnt/ssd/research/cfdna/processed")
-MODELS = Path("/mnt/ssd/research/cfdna/models")
-RES = Path("/mnt/ssd/research/cfdna/results")
+PROC = Path("work/processed")
+MODELS = Path("work/models")
+RES = Path("work/results")
 RES.mkdir(parents=True, exist_ok=True)
-LOG = Path("/mnt/ssd/research/cfdna/logs/day2_d.log")
+LOG = Path("work/logs/day2_d.log")
 
 N_BLOCKS = 9520
 SEED = 42

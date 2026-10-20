@@ -35,9 +35,9 @@ Training data:
 Augmentation: randomly mask 10-80% of blocks per sample during training.
 
 Output:
-  /mnt/ssd/research/cfdna/models/learned_deconv_nanaware.pt
-  /mnt/ssd/research/cfdna/models/phase_b_summary.json
-  /mnt/ssd/research/cfdna/processed/distsampled_deconv_nanaware.parquet
+  work/models/learned_deconv_nanaware.pt
+  work/models/phase_b_summary.json
+  work/processed/distsampled_deconv_nanaware.parquet
 """
 import json, time, pickle, sys, random
 from pathlib import Path
@@ -49,9 +49,9 @@ import torch.nn as nn
 import torch.nn.functional as F
 from torch.utils.data import DataLoader, TensorDataset, ConcatDataset
 
-PROC = Path("/mnt/ssd/research/cfdna/processed")
-MODELS = Path("/mnt/ssd/research/cfdna/models")
-LOG = Path("/mnt/ssd/research/cfdna/logs/day3_phase_b.log")
+PROC = Path("work/processed")
+MODELS = Path("work/models")
+LOG = Path("work/logs/day3_phase_b.log")
 
 N_BLOCKS = 9520
 SEED = 42
@@ -67,7 +67,7 @@ def log(m):
 
 
 def load_atlas_cts():
-    atlas_tsv = "/mnt/hdd/research/cfdna/raw/loyfer_atlas/Atlas.U250.l4.hg38.full.tsv"
+    atlas_tsv = "work/raw/loyfer_atlas/Atlas.U250.l4.hg38.full.tsv"
     df = pd.read_csv(atlas_tsv, sep="\t", nrows=1)
     return [c for c in df.columns
             if c not in ("chr","start","end","startCpG","endCpG","target","name","direction")]

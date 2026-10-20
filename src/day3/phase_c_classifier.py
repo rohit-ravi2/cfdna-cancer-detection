@@ -32,11 +32,11 @@ import torch.nn.functional as F
 from torch.utils.data import DataLoader, TensorDataset
 from sklearn.metrics import roc_auc_score, roc_curve
 
-PROC = Path("/mnt/ssd/research/cfdna/processed")
-MODELS = Path("/mnt/ssd/research/cfdna/models")
-RESULTS = Path("/mnt/ssd/research/cfdna/results")
+PROC = Path("work/processed")
+MODELS = Path("work/models")
+RESULTS = Path("work/results")
 RESULTS.mkdir(parents=True, exist_ok=True)
-LOG = Path("/mnt/ssd/research/cfdna/logs/day3_phase_c.log")
+LOG = Path("work/logs/day3_phase_c.log")
 
 SEED = 42
 torch.manual_seed(SEED); np.random.seed(SEED); random.seed(SEED)
@@ -52,7 +52,7 @@ def log(m):
 
 
 def load_atlas_cts():
-    atlas_tsv = "/mnt/hdd/research/cfdna/raw/loyfer_atlas/Atlas.U250.l4.hg38.full.tsv"
+    atlas_tsv = "work/raw/loyfer_atlas/Atlas.U250.l4.hg38.full.tsv"
     df = pd.read_csv(atlas_tsv, sep="\t", nrows=1)
     return [c for c in df.columns
             if c not in ("chr","start","end","startCpG","endCpG","target","name","direction")]

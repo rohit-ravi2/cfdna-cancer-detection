@@ -1,0 +1,30 @@
+{
+  "cfDNA_NNLS_mega": {
+    "mean": 0.27708438269666347,
+    "std": 0.07990341320093107,
+    "min": 0.1512955075546534,
+    "max": 0.5128527935845124
+  },
+  "WBC_NNLS_mega": {
+    "mean": 0.00176256912981329,
+    "std": 0.003513120384773975,
+    "min": 0.0,
+    "max": 0.011928016864271798
+  },
+  "cfDNA_learned_mega_mean": 0.2794148027896881,
+  "WBC_learned_mega_mean": 0.009911032393574715,
+  "top10_cfdna_cell_types": {
+    "Megakaryocytes": 0.27708438269666347,
+    "Blood-Granul": 0.27552080312644656,
+    "Blood-Mono+Macro": 0.19912117408938498,
+    "Eryth-prog": 0.09326911376861316,
+    "Blood-NK": 0.042966636261426466,
+    "Endothel": 0.03244083397593149,
+    "Liver-Hep": 0.0146562645481759,
+    "Heart-Fibro": 0.013777408536456513,
+    "Adipocytes": 0.011581226071445263,
+    "Smooth-Musc": 0.011228284634626157
+  },
+  "verdict": "biological_platelet_derived",
+  "evidence": "cfDNA NNLS megakaryocyte fraction = 0.277 (high), WBC = 0.002 (near-zero). Consistent with platelet-derived cfDNA per PMID 36419002 (Fox-Fisher et al 2022). Megakaryocytes shed platelets, which release small amounts of DNA into plasma via the megakaryocyte methylation signature."
+}

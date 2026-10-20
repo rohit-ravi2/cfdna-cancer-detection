@@ -1,4 +1,4 @@
-# cfDNA project — main venv at /home/rohit/venvs/cfdna/
+# cfDNA project — main venv at venvs/cfdna/
 # Generated 2026-05-12 (Gate 0)
 # Python 3.12.3
 
@@ -30,6 +30,6 @@ requests==2.34.0
 
 # ---
 # Methylprep is installed in a SEPARATE venv to avoid numpy/pandas conflicts:
-#   /home/rohit/venvs/cfdna-methylprep/
+#   venvs/cfdna-methylprep/
 #   methylprep==1.7.1
 # Use only for idat -> beta value conversion (Gate 2 step, if Illumina array data is encountered).

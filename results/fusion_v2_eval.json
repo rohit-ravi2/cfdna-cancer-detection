@@ -1,0 +1,120 @@
+{
+  "A_full": {
+    "auroc_cancer": 0.7869565217391304,
+    "sens_at_95_spec": 0.39516908212560387,
+    "thr_at_95_spec": 0.9999735951423645,
+    "sens_at_99_spec": 0.3352657004830918,
+    "thr_at_99_spec": 0.9999973773956299,
+    "stage1_sens_at_95_spec": 0.1565217391304348,
+    "stage1_sens_at_99_spec": 0.06376811594202898,
+    "stage2_sens_at_95_spec": 0.20869565217391303,
+    "stage2_sens_at_99_spec": 0.14782608695652175,
+    "stage3_sens_at_95_spec": 0.5304347826086957,
+    "stage3_sens_at_99_spec": 0.4391304347826087,
+    "stage4_sens_at_95_spec": 0.6057971014492753,
+    "stage4_sens_at_99_spec": 0.6,
+    "tissue_top1": 0.6657004830917874,
+    "stage_top1": 0.7159420289855073,
+    "tf_mse": 0.0013311360962688923
+  },
+  "B_no_frag": {
+    "auroc_cancer": 0.7938668346985926,
+    "sens_at_95_spec": 0.37681159420289856,
+    "thr_at_95_spec": 0.9999997615814209,
+    "sens_at_99_spec": 0.34106280193236715,
+    "thr_at_99_spec": 0.9999998807907104,
+    "stage1_sens_at_95_spec": 0.15942028985507245,
+    "stage1_sens_at_99_spec": 0.14492753623188406,
+    "stage2_sens_at_95_spec": 0.17391304347826086,
+    "stage2_sens_at_99_spec": 0.17391304347826086,
+    "stage3_sens_at_95_spec": 0.3391304347826087,
+    "stage3_sens_at_99_spec": 0.30869565217391304,
+    "stage4_sens_at_95_spec": 0.6869565217391305,
+    "stage4_sens_at_99_spec": 0.6144927536231884,
+    "tissue_top1": 0.6541062801932367,
+    "stage_top1": 0.7178743961352657,
+    "tf_mse": 0.0008728806860744953
+  },
+  "C_screening": {
+    "auroc_cancer": 0.8289855072463768,
+    "sens_at_95_spec": 0.5478260869565217,
+    "thr_at_95_spec": 0.93257075548172,
+    "sens_at_99_spec": 0.5014492753623189,
+    "thr_at_99_spec": 0.9859733581542969,
+    "stage1_sens_at_95_spec": 0.1246376811594203,
+    "stage1_sens_at_99_spec": 0.0927536231884058,
+    "stage2_sens_at_95_spec": 0.21739130434782608,
+    "stage2_sens_at_99_spec": 0.1826086956521739,
+    "stage3_sens_at_95_spec": 0.6695652173913044,
+    "stage3_sens_at_99_spec": 0.5347826086956522,
+    "stage4_sens_at_95_spec": 1.0,
+    "stage4_sens_at_99_spec": 0.9942028985507246,
+    "tissue_top1": 0.5120772946859904,
+    "stage_top1": 0.8144927536231884,
+    "tf_mse": 0.0013493008445948362
+  },
+  "D_no_deconv": {
+    "auroc_cancer": 0.817727368199958,
+    "sens_at_95_spec": 0.4579710144927536,
+    "thr_at_95_spec": 0.9992157220840454,
+    "sens_at_99_spec": 0.3681159420289855,
+    "thr_at_99_spec": 0.9998170137405396,
+    "stage1_sens_at_95_spec": 0.1246376811594203,
+    "stage1_sens_at_99_spec": 0.08405797101449275,
+    "stage2_sens_at_95_spec": 0.13043478260869565,
+    "stage2_sens_at_99_spec": 0.12173913043478261,
+    "stage3_sens_at_95_spec": 0.45652173913043476,
+    "stage3_sens_at_99_spec": 0.3173913043478261,
+    "stage4_sens_at_95_spec": 0.9014492753623189,
+    "stage4_sens_at_99_spec": 0.7681159420289855,
+    "tissue_top1": 0.6376811594202898,
+    "stage_top1": 0.6956521739130435,
+    "tf_mse": 0.0015167344827204943
+  },
+  "E_deconv_only": {
+    "auroc_cancer": 0.8990128124343626,
+    "sens_at_95_spec": 0.7855072463768116,
+    "thr_at_95_spec": 0.2843683958053589,
+    "sens_at_99_spec": 0.5893719806763285,
+    "thr_at_99_spec": 0.9208210110664368,
+    "stage1_sens_at_95_spec": 0.4144927536231884,
+    "stage1_sens_at_99_spec": 0.06376811594202898,
+    "stage2_sens_at_95_spec": 0.8260869565217391,
+    "stage2_sens_at_99_spec": 0.23478260869565218,
+    "stage3_sens_at_95_spec": 1.0,
+    "stage3_sens_at_99_spec": 0.9391304347826087,
+    "stage4_sens_at_95_spec": 1.0,
+    "stage4_sens_at_99_spec": 1.0,
+    "tissue_top1": 0.8106280193236715,
+    "stage_top1": 0.8908212560386474,
+    "tf_mse": 0.0004727811610791832
+  },
+  "cross_cohort_GSE122126": {
+    "n_samples": 101,
+    "n_cancer": -67,
+    "n_healthy": 4,
+    "ablations": {
+      "A_full": {
+        "auroc": 0.5,
+        "scores_mean": 1.0,
+        "scores_std": 0.0,
+        "scores_min": 1.0,
+        "scores_max": 1.0
+      },
+      "C_screening": {
+        "auroc": 0.5,
+        "scores_mean": 1.0,
+        "scores_std": 0.0,
+        "scores_min": 1.0,
+        "scores_max": 1.0
+      },
+      "E_deconv_only": {
+        "auroc": 0.21666666666666667,
+        "scores_mean": 0.9996829032897949,
+        "scores_std": 0.001179924001917243,
+        "scores_min": 0.989829957485199,
+        "scores_max": 0.9999998807907104
+      }
+    }
+  }
+}

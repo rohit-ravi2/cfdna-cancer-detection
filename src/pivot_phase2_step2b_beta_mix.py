@@ -30,9 +30,9 @@ Method:
     sorted-cell .beta file once (we have the .beta on disk; no mixing needed).
 
 Output (overwrites step 2a outputs):
-    /mnt/ssd/research/cfdna/processed/GSE186458_mixtures_betas.parquet
-    /mnt/ssd/research/cfdna/processed/GSE186458_mixtures_labels.parquet
-    /mnt/hdd/research/cfdna/raw/GSE186458/pivot/mixtures/manifest.tsv
+    work/processed/GSE186458_mixtures_betas.parquet
+    work/processed/GSE186458_mixtures_labels.parquet
+    work/raw/GSE186458/pivot/mixtures/manifest.tsv
 """
 import json
 import os
@@ -45,14 +45,14 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-WGBSTOOLS = "/home/rohit/tools/wgbs_tools/wgbstools"
-PATH_PREFIX = "/home/rohit/miniconda3/envs/wgbs/bin:/home/rohit/tools/wgbs_tools"
-ATLAS_BED = Path("/mnt/ssd/research/cfdna/processed/atlas_blocks_hg38.bed")
+WGBSTOOLS = os.environ.get("WGBSTOOLS", "wgbstools")
+PATH_PREFIX = os.environ.get("WGBS_BIN_DIR", "") + ":" + os.environ.get("WGBS_DIR", "")
+ATLAS_BED = Path("work/processed/atlas_blocks_hg38.bed")
 
-HEALTHY_HARM = Path("/mnt/ssd/research/cfdna/processed/GSE186458_cfdna_harmonized.parquet")
-SORTED_DIR   = Path("/mnt/hdd/research/cfdna/raw/GSE186458/pivot/sorted_cells")
-MIX_DIR      = Path("/mnt/hdd/research/cfdna/raw/GSE186458/pivot/mixtures")
-LOG_DIR      = Path("/mnt/ssd/research/cfdna/logs")
+HEALTHY_HARM = Path("work/processed/GSE186458_cfdna_harmonized.parquet")
+SORTED_DIR   = Path("work/raw/GSE186458/pivot/sorted_cells")
+MIX_DIR      = Path("work/raw/GSE186458/pivot/mixtures")
+LOG_DIR      = Path("work/logs")
 GATES_LOG    = LOG_DIR / "gates.log"
 STDERR_LOG   = LOG_DIR / "pivot_phase2_step2b.log"
 
@@ -208,7 +208,7 @@ def main():
 
     out_betas = pd.DataFrame(beta_arr, columns=sample_ids)
     out_betas.insert(0, "block_id", block_ids)
-    out_betas.to_parquet("/mnt/ssd/research/cfdna/processed/GSE186458_mixtures_betas.parquet",
+    out_betas.to_parquet("work/processed/GSE186458_mixtures_betas.parquet",
                          compression="zstd")
     log("  wrote betas parquet")
 
@@ -217,7 +217,7 @@ def main():
     labels_df["tumor_fraction"] = labels_df["target_fraction"]
     out_labels = labels_df[["sample_id","cancer_present","tumor_fraction","tissue_of_origin",
                             "healthy_donor","tumor_donor","tumor_subtype","mean_beta"]]
-    out_labels.to_parquet("/mnt/ssd/research/cfdna/processed/GSE186458_mixtures_labels.parquet",
+    out_labels.to_parquet("work/processed/GSE186458_mixtures_labels.parquet",
                           compression="zstd")
     log(f"  wrote labels parquet: {len(out_labels)} rows")
 

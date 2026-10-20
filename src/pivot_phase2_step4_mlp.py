@@ -19,13 +19,13 @@ Evaluation: sensitivity at 95/99/99.5% specificity, stratified by
     stage3 = fraction in {0.10, 0.15}
 
 Outputs:
-    /mnt/ssd/research/cfdna/models/multitask_mlp_deconv.pt
-    /mnt/ssd/research/cfdna/models/multitask_mlp_raw.pt
-    /mnt/ssd/research/cfdna/results/multitask_eval.json
-    /mnt/ssd/research/cfdna/results/ablation_deconv_vs_raw.json
-    /mnt/ssd/research/cfdna/results/roc_stage1.png
-    /mnt/ssd/research/cfdna/results/roc_stage2.png
-    /mnt/ssd/research/cfdna/results/roc_stage3.png
+    work/models/multitask_mlp_deconv.pt
+    work/models/multitask_mlp_raw.pt
+    work/results/multitask_eval.json
+    work/results/ablation_deconv_vs_raw.json
+    work/results/roc_stage1.png
+    work/results/roc_stage2.png
+    work/results/roc_stage3.png
 """
 import json
 import os
@@ -43,14 +43,14 @@ from sklearn.model_selection import train_test_split
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
 
-DECONV_FILE  = Path("/mnt/ssd/research/cfdna/processed/GSE186458_mixtures_deconv.parquet")
-BETAS_FILE   = Path("/mnt/ssd/research/cfdna/processed/GSE186458_mixtures_betas.parquet")
-LABELS_FILE  = Path("/mnt/ssd/research/cfdna/processed/GSE186458_mixtures_labels.parquet")
-ATLAS_TSV    = Path("/mnt/hdd/research/cfdna/raw/loyfer_atlas/Atlas.U250.l4.hg38.full.tsv")
+DECONV_FILE  = Path("work/processed/GSE186458_mixtures_deconv.parquet")
+BETAS_FILE   = Path("work/processed/GSE186458_mixtures_betas.parquet")
+LABELS_FILE  = Path("work/processed/GSE186458_mixtures_labels.parquet")
+ATLAS_TSV    = Path("work/raw/loyfer_atlas/Atlas.U250.l4.hg38.full.tsv")
 META_COLS    = ["chr", "start", "end", "startCpG", "endCpG", "target", "name", "direction"]
-MODELS_DIR   = Path("/mnt/ssd/research/cfdna/models"); MODELS_DIR.mkdir(parents=True, exist_ok=True)
-RES_DIR      = Path("/mnt/ssd/research/cfdna/results"); RES_DIR.mkdir(parents=True, exist_ok=True)
-LOG_DIR      = Path("/mnt/ssd/research/cfdna/logs")
+MODELS_DIR   = Path("work/models"); MODELS_DIR.mkdir(parents=True, exist_ok=True)
+RES_DIR      = Path("work/results"); RES_DIR.mkdir(parents=True, exist_ok=True)
+LOG_DIR      = Path("work/logs")
 GATES_LOG    = LOG_DIR / "gates.log"
 STDERR_LOG   = LOG_DIR / "pivot_phase2_step4.log"
 

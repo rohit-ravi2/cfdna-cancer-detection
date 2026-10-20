@@ -2,7 +2,7 @@
 """
 PIVOT_PHASE1_GSE186458 STEP 3 — Harmonize GSE186458 cfDNA + WBC to atlas blocks.
 
-For each .hg38.beta file in /mnt/hdd/research/cfdna/raw/GSE186458/pivot/:
+For each .hg38.beta file in work/raw/GSE186458/pivot/:
   - Call `wgbstools beta_to_blocks` to collapse the per-CpG beta to the 9520
     atlas blocks (using atlas_blocks_hg38.bed which we built from the atlas
     TSV: chr, start, end, startCpG, endCpG).
@@ -32,20 +32,20 @@ import pandas as pd
 # -------------------------------------------------------------------------
 # Paths
 # -------------------------------------------------------------------------
-PIVOT_DIR = Path("/mnt/hdd/research/cfdna/raw/GSE186458/pivot")
-PROC_DIR = Path("/mnt/ssd/research/cfdna/processed")
-LOG_DIR = Path("/mnt/ssd/research/cfdna/logs")
-RES_DIR = Path("/mnt/ssd/research/cfdna/results")
+PIVOT_DIR = Path("work/raw/GSE186458/pivot")
+PROC_DIR = Path("work/processed")
+LOG_DIR = Path("work/logs")
+RES_DIR = Path("work/results")
 PROC_DIR.mkdir(parents=True, exist_ok=True)
 LOG_DIR.mkdir(parents=True, exist_ok=True)
 RES_DIR.mkdir(parents=True, exist_ok=True)
 
 ATLAS_BLOCKS_BED = PROC_DIR / "atlas_blocks_hg38.bed"
-ATLAS_TSV = Path("/mnt/hdd/research/cfdna/raw/loyfer_atlas/Atlas.U250.l4.hg38.full.tsv")
+ATLAS_TSV = Path("work/raw/loyfer_atlas/Atlas.U250.l4.hg38.full.tsv")
 TMP_DIR = Path("/tmp/wgbs_harmonize")
 TMP_DIR.mkdir(parents=True, exist_ok=True)
 
-WGBSTOOLS = "/home/rohit/tools/wgbs_tools/wgbstools"
+WGBSTOOLS = os.environ.get("WGBSTOOLS", "wgbstools")
 
 GATES_LOG = LOG_DIR / "gates.log"
 
@@ -88,7 +88,7 @@ def run_beta_to_blocks(beta_path: Path, out_dir: Path) -> Path:
         str(beta_path),
     ]
     env = os.environ.copy()
-    env["PATH"] = f"/home/rohit/miniconda3/envs/wgbs/bin:{env.get('PATH','')}"
+    env["PATH"] = os.environ.get("WGBS_BIN_DIR", "") + ":" + env.get("PATH", "")
     r = subprocess.run(cmd, capture_output=True, text=True, env=env)
     if r.returncode != 0:
         raise RuntimeError(f"beta_to_blocks failed for {beta_path.name}: {r.stderr}")

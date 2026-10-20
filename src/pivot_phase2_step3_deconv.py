@@ -4,14 +4,14 @@ PIVOT_PHASE2 STEP 3 — Deconvolve all 828 mixture samples (23 unmixed + 805 mix
 via the validated Phase 1 NNLS pipeline.
 
 Inputs:
-    /mnt/ssd/research/cfdna/processed/GSE186458_mixtures_betas.parquet
-    /mnt/ssd/research/cfdna/processed/GSE186458_mixtures_labels.parquet
-    Loyfer atlas at /mnt/hdd/research/cfdna/raw/loyfer_atlas/Atlas.U250.l4.hg38.full.tsv
+    work/processed/GSE186458_mixtures_betas.parquet
+    work/processed/GSE186458_mixtures_labels.parquet
+    Loyfer atlas at work/raw/loyfer_atlas/Atlas.U250.l4.hg38.full.tsv
 
 Outputs:
-    /mnt/ssd/research/cfdna/processed/GSE186458_mixtures_deconv.parquet
-    /mnt/ssd/research/cfdna/results/mixture_calibration.png
-    /mnt/ssd/research/cfdna/results/mixture_calibration.json
+    work/processed/GSE186458_mixtures_deconv.parquet
+    work/results/mixture_calibration.png
+    work/results/mixture_calibration.json
 
 Sanity: for each tissue, plot tumor_fraction vs measured tissue cell-fraction
 across the 7 fraction levels, and confirm Pearson r is meaningful (>= 0.5).
@@ -27,13 +27,13 @@ import pandas as pd
 from scipy.optimize import nnls
 from joblib import Parallel, delayed
 
-ATLAS_TSV  = Path("/mnt/hdd/research/cfdna/raw/loyfer_atlas/Atlas.U250.l4.hg38.full.tsv")
+ATLAS_TSV  = Path("work/raw/loyfer_atlas/Atlas.U250.l4.hg38.full.tsv")
 META_COLS  = ["chr", "start", "end", "startCpG", "endCpG", "target", "name", "direction"]
-MIX_BETAS  = Path("/mnt/ssd/research/cfdna/processed/GSE186458_mixtures_betas.parquet")
-MIX_LABELS = Path("/mnt/ssd/research/cfdna/processed/GSE186458_mixtures_labels.parquet")
-OUT_DECONV = Path("/mnt/ssd/research/cfdna/processed/GSE186458_mixtures_deconv.parquet")
-RES_DIR    = Path("/mnt/ssd/research/cfdna/results"); RES_DIR.mkdir(parents=True, exist_ok=True)
-LOG_DIR    = Path("/mnt/ssd/research/cfdna/logs")
+MIX_BETAS  = Path("work/processed/GSE186458_mixtures_betas.parquet")
+MIX_LABELS = Path("work/processed/GSE186458_mixtures_labels.parquet")
+OUT_DECONV = Path("work/processed/GSE186458_mixtures_deconv.parquet")
+RES_DIR    = Path("work/results"); RES_DIR.mkdir(parents=True, exist_ok=True)
+LOG_DIR    = Path("work/logs")
 STDERR_LOG = LOG_DIR / "pivot_phase2_step3.log"
 GATES_LOG  = LOG_DIR / "gates.log"
 
